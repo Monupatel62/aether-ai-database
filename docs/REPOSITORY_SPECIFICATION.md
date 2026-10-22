@@ -1,6 +1,6 @@
 # Repository specification: aether-ai-database
 
-**Status:** Documentation baseline copied from the Aether AI master specification. Implementation status must be verified separately.
+**Status:** Repository exists; documentation-only on the inspected `main` branch. No application implementation is present in the audited tree.
 
 ## Mission
 
@@ -8,7 +8,7 @@ Database schemas, migrations, persistence helpers, tenancy model, retention, bac
 
 ## Dependencies and connections
 
-Selected database driver and migration tooling (TBD). Domain repositories consume the shared tooling/contracts; the database package must not import API, orchestration, memory, files, billing or other domain services.
+Shared persistence/migration tooling only; domain semantics and authorization remain with owning components.
 
 ## Owned capabilities
 
