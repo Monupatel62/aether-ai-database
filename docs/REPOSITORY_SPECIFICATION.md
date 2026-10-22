@@ -39,7 +39,7 @@ Shared persistence tooling, migration conventions, connection/security configura
 
 ## Implementation gates
 
-1. Confirm ownership and dependencies in [master catalog](../REPOSITORY_CATALOG.md).
+1. Confirm ownership and dependencies in [master catalog](https://github.com/Monupatel62/aether-ai-platform/blob/main/docs/REPOSITORY_CATALOG.md).
 2. Decide open infrastructure choices through ADRs rather than assumptions.
 3. Build a minimal, testable component and add contract tests.
 4. Run dependency/license, vulnerability, secret, and configuration checks.
@@ -47,7 +47,7 @@ Shared persistence tooling, migration conventions, connection/security configura
 
 ## Research references
 
-- [Aether AI master catalog](../REPOSITORY_CATALOG.md)
+- [Aether AI master catalog](https://github.com/Monupatel62/aether-ai-platform/blob/main/docs/REPOSITORY_CATALOG.md)
 - [AI DIAL Core](https://github.com/epam/ai-dial-core)
 - [AI DIAL Chat architecture](https://github.com/epam/ai-dial-chat/blob/development/docs/architecture.md)
 - [WoHo AI DevKit](https://github.com/Monupatel62/woho-ai-devkit)
@@ -66,13 +66,13 @@ Before release, add unit tests, contract tests for direct dependencies, negative
 
 ## Data-layer research gate
 
-See [Data Infrastructure Evaluation](../DATA_INFRASTRUCTURE_EVALUATION.md). PostgreSQL is the proposed transactional-store candidate, not yet an accepted deployment choice. This repository should own migration conventions, schema contracts, connection/security configuration guidance, backup/PITR verification and restore drills—not every domain's business rules. Domain owners own their data semantics and schema changes. Test RLS under non-owner runtime roles, pooled-connection tenant context reset, migration compatibility, backup restore and outbox consistency. No domain service may access another domain's private tables. Never make the cache or vector index the authority for billing, permissions, or durable run state.
+See [Data Infrastructure Evaluation](https://github.com/Monupatel62/aether-ai-platform/blob/main/docs/DATA_INFRASTRUCTURE_EVALUATION.md). PostgreSQL is the proposed transactional-store candidate, not yet an accepted deployment choice. This repository should own migration conventions, schema contracts, connection/security configuration guidance, backup/PITR verification and restore drills—not every domain's business rules. Domain owners own their data semantics and schema changes. Test RLS under non-owner runtime roles, pooled-connection tenant context reset, migration compatibility, backup restore and outbox consistency. No domain service may access another domain's private tables. Never make the cache or vector index the authority for billing, permissions, or durable run state.
 
 ## Related documentation
 
-- [Master repository catalog](../REPOSITORY_CATALOG.md)
-- [Master architecture](../MASTER_ARCHITECTURE.md)
-- [Architecture audit](../ARCHITECTURE_AUDIT.md)
-- [Security threat model](../SECURITY_THREAT_MODEL.md)
-- [Open decisions and research](../OPEN_DECISIONS_RESEARCH.md)
-- [Continuity handoff](../WORK_HANDOFF.md)
+- [Master repository catalog](https://github.com/Monupatel62/aether-ai-platform/blob/main/docs/REPOSITORY_CATALOG.md)
+- [Master architecture](https://github.com/Monupatel62/aether-ai-platform/blob/main/docs/MASTER_ARCHITECTURE.md)
+- [Architecture audit](https://github.com/Monupatel62/aether-ai-platform/blob/main/docs/ARCHITECTURE_AUDIT.md)
+- [Security threat model](https://github.com/Monupatel62/aether-ai-platform/blob/main/docs/SECURITY_THREAT_MODEL.md)
+- [Open decisions and research](https://github.com/Monupatel62/aether-ai-platform/blob/main/docs/OPEN_DECISIONS_RESEARCH.md)
+- [Continuity handoff](https://github.com/Monupatel62/aether-ai-platform/blob/main/docs/WORK_HANDOFF.md)
