@@ -42,7 +42,7 @@ test("retries only recognized transient errors when explicitly safe", async () =
   const pool = fakePool(async (sql) => { if (sql === "SELECT work" && calls++ === 0) throw Object.assign(new Error("serialization"), { code: "40001" }); return {}; });
   await withTransaction(pool, (client) => client.query("SELECT work"), { retries: 1, retrySafe: true });
   assert.equal(pool.clients.length, 2);
-  assert.throws(() => withTransaction(pool, async () => {}, { retries: 1 }), DatabaseContractError);
+  await assert.rejects(withTransaction(pool, async () => {}, { retries: 1 }), DatabaseContractError);
 });
 
 test("rejects unsupported isolation levels", async () => {
