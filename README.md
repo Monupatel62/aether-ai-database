@@ -2,7 +2,7 @@
 
 Database schemas, migrations, persistence helpers, tenancy model, retention, backup, and restore contracts.
 
-**Status:** Documentation foundation only; no implementation or deployment is claimed.
+**Status:** Initial migration-metadata validation utility is in review; database adapter, migrations, and deployment are not implemented.
 
 ## Docs
 
@@ -15,6 +15,7 @@ Database schemas, migrations, persistence helpers, tenancy model, retention, bac
 - [Research and licenses](docs/RESEARCH_AND_LICENSES.md)
 - [Engineering standard](docs/ENGINEERING_STANDARD.md)
 - [Work log](docs/WORKLOG.md)
+- Initial implementation: migration stream metadata validator (pure TypeScript; no database connection or SQL execution).
 
 - [Master catalog](https://github.com/Monupatel62/aether-ai-platform/blob/main/docs/REPOSITORY_CATALOG.md)
 - [Master architecture](https://github.com/Monupatel62/aether-ai-platform/blob/main/docs/MASTER_ARCHITECTURE.md)
