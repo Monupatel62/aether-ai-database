@@ -1,0 +1,17 @@
+{
+  "name": "@aether-ai/database-contract",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Database migration manifest and tenant-context safety contracts",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check src/index.js && node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
