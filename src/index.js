@@ -40,7 +40,12 @@ export async function withTransaction(pool, callback, { isolation = "read commit
   if (!Number.isSafeInteger(retries) || retries < 0 || retries > 3 || (retries > 0 && retrySafe !== true)) throw new DatabaseContractError("unsafe_retry_policy");
   let attempt = 0;
   while (true) {
-    const client = await pool.connect();
+    let client;
+    try { client = await pool.connect(); } catch { throw new DatabaseContractError("connection_unavailable", "Database connection could not be acquired"); }
+    if (!client || typeof client.query !== "function" || typeof client.release !== "function") {
+      try { client?.release?.(); } catch { /* ignore invalid connection cleanup */ }
+      throw new DatabaseContractError("invalid_connection", "Database adapter returned an invalid connection");
+    }
     let began = false;
     try {
       await client.query(`BEGIN ISOLATION LEVEL ${isolation.toUpperCase()}`);
