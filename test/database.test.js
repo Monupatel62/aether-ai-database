@@ -49,3 +49,9 @@ test("rejects unsupported isolation levels", async () => {
   const pool = fakePool();
   await assert.rejects(withTransaction(pool, async () => {}, { isolation: "read uncommitted" }), DatabaseContractError);
 });
+
+
+test("normalizes connection acquisition and malformed connection failures", async () => {
+  await assert.rejects(withTransaction({ connect: async () => { throw new Error("private connection string"); } }, async () => {}), (e) => e.code === "connection_unavailable" && !e.message.includes("private"));
+  await assert.rejects(withTransaction({ connect: async () => ({ query: async () => {} }) }, async () => {}), (e) => e.code === "invalid_connection");
+});
