@@ -1,0 +1,10 @@
+{
+  "name": "@aether-ai/database",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Database transaction policy and migration manifest validation primitives.",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "exports": { ".": "./src/index.js" },
+  "scripts": { "test": "node --test", "check": "node --check src/index.js && node --check test/database.test.js" }
+}
