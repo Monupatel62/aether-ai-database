@@ -3,10 +3,10 @@
 **Status:** Proposed; not implemented.
 
 ## Mission
-Database schemas, migrations, persistence helpers, tenancy model, retention, backup, and restore contracts.
+Database schemas, migrations, persistence helpers, tenant-isolation patterns, retention, backup, and restore contracts.
 
 ## Ownership
-Shared persistence tooling, migration conventions, connection/security configuration guidance, low-level persistence contracts, tenant-isolation patterns, backup/restore/PITR verification and restore drills. Each domain owns its table semantics, domain constraints and migration intent; the physical migration packaging/composition strategy remains open.
+Shared persistence tooling, migration conventions, connection/security configuration guidance, low-level persistence contracts, tenant-isolation patterns, backup/restore/PITR verification and restore drills. Database provides isolation primitives and guidance only; it does not establish canonical tenant/workspace membership or role-grant ownership. Each domain owns its table semantics, domain constraints and migration intent; the physical migration packaging/composition strategy remains open.
 
 ## Dependencies
 Selected database driver and migration tooling (TBD). Domain repositories consume the shared tooling/contracts; the database package must not import API, orchestration, memory, files, billing or other domain services.
