@@ -3,7 +3,7 @@
 **Status:** Proposed; not implemented.
 
 ## Mission
-Database schemas, migrations, persistence helpers, tenancy model, retention, backup, and restore contracts.
+Database schemas, migrations, persistence helpers, tenant-isolation patterns, retention, backup, and restore contracts.
 
 ## Ownership
 Shared persistence tooling, migration conventions, connection/security configuration guidance, low-level persistence contracts, tenant-isolation patterns, backup/restore/PITR verification and restore drills. Each domain owns its table semantics, domain constraints and migration intent; the physical migration packaging/composition strategy remains open.
